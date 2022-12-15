@@ -1,4 +1,4 @@
-## Home Work 2 v2.0. Introduction to Python. Continuation ##
+## Home Work 2. Introduction to Python. Continuation ##
 
 ### Task 1.
 Напишите программу, которая принимает на вход вещественное число и показывает сумму его цифр.
