@@ -1,2 +1,5 @@
-# Home Work 1. Input-Output. if-else operators
+# **Home Work 1. Input-Output. if-else operators**
+
+## *Task 4.*
+Напишите программу, которая по заданному номеру четверти, показывает диапазон возможных координат точек в этой четверти (x и y).
 
