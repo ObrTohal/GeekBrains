@@ -2,7 +2,7 @@
 # которая составит список простых множителей числа N.
 
 def factor(number):
-    ans = list()
+    ans = set()
     devider = 2
     while devider*devider <= number:
         if number % devider == 0:
