@@ -13,13 +13,13 @@ def gen_polynomial(k):
     if(k>1):
         rand_coef = R.randint(1,100)
         if rand_coef>1:
-            polynomial = [str(rand_coef)+'x^{}'.format(k)]
+            polynomial = [str(rand_coef)+'*x^{}'.format(k)]
         else:
             polynomial = ['x^{}'.format(k)]
     elif k==1:
         rand_coef = R.randint(1,100)
         coef = R.randint(0,100)
-        polynomial = [str(rand_coef)+'x']
+        polynomial = [str(rand_coef)+'*x']
         if coef !=0:
             polynomial.append(str(coef))
         return (' + '.join(polynomial))+' = 0'
@@ -30,17 +30,18 @@ def gen_polynomial(k):
     while k > 1 :
         rand_coef = R.randint(0,100)
         if rand_coef !=0:
-            polynomial.append(str(rand_coef)+'x^{}'.format(k))
+            polynomial.append(str(rand_coef)+'*x^{}'.format(k))
         k-=1
     else:
         rand_coef = R.randint(0,100)
         coef = R.randint(0,100)
         if rand_coef !=0:
-            polynomial.append(str(rand_coef)+'x')
+            polynomial.append(str(rand_coef)+'*x')
         if coef !=0:
             polynomial.append(str(coef))
     return (' + '.join(polynomial))+' = 0'
 
-with open('Home Work 4. Dictionarysm,Sets and profiling/Task_4/Task_4_polynom.txt','w') as file:
-    file.write(gen_polynomial(int(input('Введите степень полинома: '))))
-print("Могочлен записан в файл!")
+def task_4():
+    with open('Home Work 4. Dictionarysm,Sets and profiling/Task_4/Task_4_polynom.txt','w') as file:
+        file.write(gen_polynomial(int(input('Введите степень полинома: '))))
+    print("Могочлен записан в файл!")
