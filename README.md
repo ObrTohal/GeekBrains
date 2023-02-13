@@ -5,3 +5,4 @@ Lessons and home works for the GeekBrains
 - Cycles. for-while
 - Lists & Dictionarys
 - Dictionarysm,Sets and profiling
+- Recursion and algorithms
