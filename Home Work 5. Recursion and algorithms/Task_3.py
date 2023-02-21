@@ -68,20 +68,23 @@ def load_pvp_game():
         update_battleground(battleground_massive)
     else:
         print(f"Победили: {player}")
-            
-    # print_move()
 
 def player_move(player,players_moves):
     x,y = input().split(" ")
     if 0 < int(x) < 4 and 0 < int(y) < 4:
-        if player == "X":
-            players_moves['X'][int(x)-1][int(y)-1]='X'
-        elif player == "O":
-            players_moves['O'][int(x)-1][int(y)-1]='O'
-        return (x,y)
+        if (players_moves['X'][int(x)-1][int(y)-1] == ' ') and\
+            (players_moves['O'][int(x)-1][int(y)-1] == ' '):
+            if player == "X":
+                players_moves['X'][int(x)-1][int(y)-1]='X'
+            elif player == "O":
+                players_moves['O'][int(x)-1][int(y)-1]='O'
+            return (x,y)
+        else:
+           print("Эта ячейка уже занята! Введите другую ячейку!") 
+           return player_move(player,players_moves)
     else:
         print("Введите значение в диапазоне от 1 до 3 !!")
-        player_move()
+        return player_move(player,players_moves)
 
 def check_win(moves:dict):
     for player in moves:        #Проход по сделанным ходам
@@ -102,14 +105,17 @@ def check_win(moves:dict):
                     r_diag.append(rows[-c-1][r])
             columns.append(elems)
         for _set_ in rows:
-            count_row += _set_.count(player)
+            count_row = _set_.count(player)
+            if count_row == 3:
+                return (player,True)
         for _set_ in columns:
-            count_col += _set_.count(player)
-        count_d += diag.count(player)
-        count_rd += r_diag.count(player)
+            count_col = _set_.count(player)
+            if count_col == 3:
+                return (player,True)
+        count_d = diag.count(player)
+        count_rd = r_diag.count(player)
         if(count_col and count_row):    #если ход был сделан
-            if count_row%3==0 or count_col%3==0 or\
-                (count_d%3==0 and player in diag) or\
+            if  (count_d%3==0 and player in diag) or\
                 (count_rd%3==0 and player in r_diag):
                 return (player,True)
     return (' ',False)
