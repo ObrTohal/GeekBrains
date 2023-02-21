@@ -49,6 +49,7 @@ def load_pvp_game():
     last_move_player = 'X'
     clear_battleground()
     battleground_massive[int(x)-1][int(y)-1] = 'X'
+    counter_pair =1
     update_battleground(battleground_massive)
     player, win = check_win(players_moves)
     while not win:
@@ -64,10 +65,15 @@ def load_pvp_game():
             x,y = player_move('X',players_moves)
             clear_battleground()
             battleground_massive[int(x)-1][int(y)-1] = 'X'
+        counter_pair+=1
         player, win = check_win(players_moves)
         update_battleground(battleground_massive)
+        if(counter_pair == 9 and not win):
+            print(f"Ничья!")
+            break
     else:
         print(f"Победили: {player}")
+        
 
 def player_move(player,players_moves):
     x,y = input().split(" ")
