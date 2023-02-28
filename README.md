@@ -6,3 +6,4 @@ Lessons and home works for the GeekBrains
 - Lists & Dictionarys
 - Dictionarysm,Sets and profiling
 - Recursion and algorithms
+- List repetition
