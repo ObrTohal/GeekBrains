@@ -6,5 +6,33 @@
 # от друга пробелами. Стихотворение Винни-Пух вбивает в программу с клавиатуры. В ответе
 # напишите “Парам пам-пам”, если с ритмом все в порядке и “Пам парам”, если с ритмом все не
 # в порядке
-# Ввод: Вывод:
-# пара-ра-рам рам-пам-папам па-ра-па-дам Парам пам-пам
+# Ввод:                                     Вывод:
+# пара-ра-рам рам-пам-папам па-ра-па-дам    Парам пам-пам
+
+def is_rithm(string:str):
+    vowel = 'аеёиоуыэюя'
+    vowel_upper = vowel.upper()
+    vowel_set = set(vowel+vowel_upper)
+    #  Проверка слогов
+    if check_syllables(string.split(' '),vowel_set):
+        print("Парам пам-пам")
+    else:
+        print("Пам парам")
+
+def check_syllables(phraze:list, vowel:set):
+    count_vowel = list()
+    # Проход по словам в фразе
+    for word in phraze:
+        #Определяется - какие гласные в слове
+        vowel_in_word = list(vowel.intersection(word))
+        #Подсчет гласных в слове
+        count =0
+        for letter in vowel_in_word:
+            count += word.count(letter)
+        count_vowel.append(count)
+    # Проверка условия ритма
+    if sum(count_vowel)/len(count_vowel) == count_vowel[0]:
+        return True
+    return False
+
+is_rithm('паро-ре-рам рам-пом-пипам па-рё-па-дам')
