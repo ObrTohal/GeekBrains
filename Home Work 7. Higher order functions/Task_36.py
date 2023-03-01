@@ -14,10 +14,10 @@
 #                                                 6   12  18  24  30  36 
 
 def print_operation_table(operation, num_rows=6, num_columns=6):
-    table = [list([elem for elem in range(0+col,num_columns+col)]) for col in range(1,num_rows+1)]
-    # for row in range(1,len(table)):
-    #     table[row][1:] = list(map(lambda elem_row: operation(row+1,1),table[row][1:]))
-    #     # print(table[1:][row-1])
+    table = [list([elem for elem in range(col,num_columns+col)]) for col in range(1,num_rows+1)]
+    for row in range(1,num_rows):
+        for col in range(1,num_columns):
+            table[row][col] = operation(row+1,col+1)
     for row in table:
         print(*row,sep='\t')
 
