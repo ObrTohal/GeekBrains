@@ -7,3 +7,4 @@ Lessons and home works for the GeekBrains
 - Dictionarysm,Sets and profiling
 - Recursion and algorithms
 - List repetition
+- Higher order functions
